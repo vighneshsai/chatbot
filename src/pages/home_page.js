@@ -20,16 +20,37 @@ const Chatbot = () => {
     };
 
     return (
-        <Box sx={{ position: 'fixed', bottom: 20, right: 20, width: 350 }}>
-            <Paper elevation={3} sx={{ borderRadius: 3 }}>
-                <Box sx={{ backgroundColor: '#007bff', padding: 2, borderTopLeftRadius: 12, borderTopRightRadius: 12, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Box sx={{
+            position: 'fixed',
+            bottom: { xs: '20px', md: '20px' },
+            right: { xs: '50%', md: '20px' },
+            left: { xs: '50%', md: 'auto' },
+            transform: { xs: 'translate(-50%, 0)', md: 'none' },
+            width: { xs: '90%', md: 350 },
+            maxWidth: 400,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: { xs: '0 auto', md: '0' },
+        }}>
+            <Paper elevation={3} sx={{ borderRadius: 3, width: '100%' }}>
+                <Box sx={{
+                    backgroundColor: '#007bff',
+                    padding: 2,
+                    borderTopLeftRadius: 12,
+                    borderTopRightRadius: 12,
+                    color: '#fff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                }}>
                     <Stack direction="row" alignItems="center" spacing={1}>
                         <Avatar src={botAvatar} alt="Bot Avatar" />
                         <Typography variant="h6">Tech Support</Typography>
                     </Stack>
-                   
+                    
                 </Box>
-                <Box sx={{ padding: 2, maxHeight: 400, overflowY: 'auto' }}>
+                <Box sx={{ padding: 2, maxHeight: {xs: 250, md: 350} , overflowY: 'auto' }}>
                     {chatHistory.map((chat, index) => (
                         <Box
                             key={index}
@@ -52,7 +73,7 @@ const Chatbot = () => {
                             </Paper>
                         </Box>
                     ))}
-                    
+                   
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', padding: 1 }}>
                     <TextField
